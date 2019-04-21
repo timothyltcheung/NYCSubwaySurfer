@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> NYC Subway Surfer </title>
+    </head>
+    <body>
+      <h1> NYC Subway Surfer </h1>
+      <form method = "POST" action= "{% url 'arrival'%}">
+        {% csrf_token %}
+        <h4> Subway Line Direction Station Stop</h4>
+        <select name = "route" size = "6">
+          <option selected value = "1"> 1 </option>
+          <option value = "2"> 2 </option>
+          <option value = "3"> 3 </option>
+          <option value = "4"> 4 </option>
+          <option value = "5"> 5 </option>
+          <option value = "6"> 6 </option>
+        </select>
+        <select name ="direction" size = "2">
+          <option selected value = "N"> Northbound </option>
+          <option value = "S"> Southbound </option>
+        </select>
+        <input list="stationstops" name = "stationstops" size = "40" type = "text" placeholder = "Enter Station Here">
+          <datalist id = "stationstops">
+            {% for station in stations %}
+              <option>{{station}}</option>
+            {% endfor %}
+          </datalist>
+        <input type = "submit" name = "submit" value="Find a train">
+      </form>
+    </body>
+</html>

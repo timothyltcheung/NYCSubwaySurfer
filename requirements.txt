@@ -1,0 +1,5 @@
+requests==2.18.4
+~jango==2.1.7
+Django==2.2
+python-dotenv==0.10.1
+protobuf==3.7.1

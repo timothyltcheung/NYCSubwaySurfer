@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> NYC Subway Surfer </title>
+  </head>
+    <body>
+      <h1> NYC Subway Surfer </h1>
+      <h2> Station  Stop: {{stopname}} </h2>
+      <h2> MTA Station ID: {{stop_id}} </h2>
+      <h3> The time is now: {{currentTime}} </h3>
+      <hr>
+      <h4> {{direction}} {{route}} train(s) are arriving in: </h4>
+      <ul>
+        {% if arrivals %}
+          {% for arrival in arrivals %}
+          <li>{{arrival}} minutes</li>
+          {% endfor %}
+        {% else %}
+          <li> No trains available </li>
+        {% endif %}
+      </ul>
+      <a href="{% url 'index' %}"> Go Back </a>
+    </body>
+</html>
